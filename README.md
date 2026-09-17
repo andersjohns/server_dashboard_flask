@@ -93,7 +93,13 @@ Hvis `root` eier `www`-mappen eller prosjektet, kan brukeren `elev` få `Permiss
 sudo chown -R elev:elev /home/elev/www
 chmod -R u+rwX /home/elev/www
 ```
+eller 
 
+```bash
+sudo chown -R elev:elev /home/elev/www/server_dashboard_flask
+chmod -R u+rwX /home/elev/www/server_dashboard_flask
+
+```
 - `chown` endrer hvem som eier filene og mappene.
 - `chmod` endrer hvilke rettigheter eieren har.
 
