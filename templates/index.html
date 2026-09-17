@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Raspberry Pi Serverdashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Raspberry Pi Serverdashboard</h1>
+    <p>En enkel Flask-side som viser status på Linux-serveren.</p>
+</header>
+
+<main class="grid">
+
+    <section class="card">
+        <h2>CPU-bruk</h2>
+        <p class="value">{{ status.cpu }} %</p>
+    </section>
+
+    <section class="card">
+        <h2>Minnebruk</h2>
+        <p class="value">{{ status.memory.percent }} %</p>
+        <p>{{ status.memory.used_gb }} GB av {{ status.memory.total_gb }} GB brukt</p>
+    </section>
+
+    <section class="card">
+        <h2>Diskplass</h2>
+        <p class="value">{{ status.disk.percent }} %</p>
+        <p>{{ status.disk.used_gb }} GB av {{ status.disk.total_gb }} GB brukt</p>
+    </section>
+
+    <section class="card">
+        <h2>Temperatur</h2>
+        {% if status.temperature %}
+            <p class="value">{{ status.temperature }} °C</p>
+        {% else %}
+            <p>Temperatur kunne ikke leses.</p>
+            <p class="hint">Dette fungerer normalt på Raspberry Pi OS med vcgencmd.</p>
+        {% endif %}
+    </section>
+
+    <section class="card">
+        <h2>Oppetid</h2>
+        <p class="value small">{{ status.uptime }}</p>
+    </section>
+
+</main>
+
+<footer>
+    <p>Oppdater siden for nye verdier.</p>
+</footer>
+
+</body>
+</html>
