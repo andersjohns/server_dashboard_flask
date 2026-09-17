@@ -26,7 +26,7 @@ Prosjektet skal derfor få denne plasseringen:
 
 ## 1. Kontroller nødvendige programmer
 
-Python 3 og Git er installert i Raspberry Pi OS fra før. Installer det som **eventuelt** mangler:
+Python 3 og Git er installert i Raspberry Pi OS fra før. 
 
 Kontroller installasjonene:
 
@@ -35,7 +35,12 @@ python3 --version
 git --version
 python3 -m pip --version
 ```
+Installer det som eventuelt mangler:
 
+```bash
+sudo apt update
+sudo apt install python3-venv python3-pip git -y
+```
 ---
 
 ## 2. Opprett `www`-mappen
@@ -63,8 +68,9 @@ Resultatet skal være:
 
 ## 3. Hent prosjektet
 
+Velg alternativ A eller B.
 
-### Klon fra GitHub
+### Alternativ A – klon fra GitHub
 
 Stå i `/home/elev/www/` og klon repositoriet:
 
@@ -75,6 +81,7 @@ cd server_dashboard_flask
 ```
 
 Bytt ut URL-en med adressen til riktig repository.
+
 
 ---
 ## 3.1 Feil med rettigheter
@@ -117,6 +124,50 @@ python -m pip install -r requirements.txt
 
 Kontroller alltid `pwd` før du sletter en mappe.
 
+
+### Alternativ B – fork prosjektet på GitHub
+
+En **fork** lager en kopi av lærerens repository på elevens egen GitHub-konto. Eleven kan dermed endre prosjektet og pushe endringene til sitt eget repository uten å endre lærerens original.
+
+1. Åpne lærerens repository på GitHub.
+2. Trykk **Fork** øverst til høyre.
+3. Velg elevens egen GitHub-konto som eier.
+4. Behold repository-navnet eller gi kopien et nytt navn.
+5. Trykk **Create fork**.
+6. Åpne den nye forken på elevens GitHub-konto.
+7. Trykk **Code** og kopier HTTPS-adressen.
+
+Klon deretter elevens egen fork til Raspberry Pi:
+
+```bash
+cd /home/elev/www
+git clone https://github.com/ELEVENS_BRUKERNAVN/server_dashboard_flask.git
+cd server_dashboard_flask
+```
+
+Kontroller hvilket repository prosjektet er koblet til:
+
+```bash
+git remote -v
+```
+
+Adressen ved `origin` skal vise elevens eget GitHub-brukernavn. Etter endringer kan eleven pushe til sin egen fork:
+
+```bash
+git status
+git add .
+git commit -m "Oppdaterte serverdashboardet"
+git push
+```
+
+Hvis læreren senere oppdaterer originalprosjektet, kan eleven åpne sin fork på GitHub og bruke **Sync fork** for å hente inn de nyeste endringene. Deretter kjøres:
+
+```bash
+cd /home/elev/www/server_dashboard_flask
+git pull
+```
+
+> **Fork og clone er ikke det samme:** Fork lager en GitHub-kopi under elevens konto. Clone laster et repository ned til Raspberry Pi.
 
 ---
 
