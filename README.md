@@ -130,8 +130,7 @@ Kontroller alltid `pwd` før du sletter en mappe.
 En **fork** lager en kopi av lærerens repository på elevens egen GitHub-konto. Eleven kan dermed endre prosjektet og pushe endringene til sitt eget repository uten å endre lærerens original.
 
 1. Åpne lærerens repository på GitHub.
-2. ```bash git clone https://github.com/andersjohns/server_dashboard_flask.git
-```
+2. git clone https://github.com/andersjohns/server_dashboard_flask.git
 3. Trykk **Fork** øverst til høyre.
 4. Velg elevens egen GitHub-konto som eier.
 5. Behold repository-navnet eller gi kopien et nytt navn.
