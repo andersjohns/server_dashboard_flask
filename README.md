@@ -76,7 +76,7 @@ Stå i `/home/elev/www/` og klon repositoriet:
 
 ```bash
 cd /home/elev/www
-git clone https://github.com/BRUKERNAVN/server_dashboard_flask.git
+git clone https://github.com/andersjohns/server_dashboard_flask.git
 cd server_dashboard_flask
 ```
 
